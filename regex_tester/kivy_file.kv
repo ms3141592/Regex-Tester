@@ -1,0 +1,55 @@
+
+
+<TheScreen>:
+    orientation: "vertical"
+    spacing: 10
+    padding: 10
+
+    TextInput:
+        id: text_input
+        size_hint: None, None
+        size_hint_y: .45
+        size_hint_x: 1
+        font_size: 22
+        multiline: True
+        hint_text: "phrase"
+
+    BoxLayout:
+        size_hint: None, None
+        size_hint_x: 1
+
+        Label:
+            size_hint_x: .15
+            font_size: 22
+            text: 'regex ("'
+
+
+        TextInput:
+            id: regex_input
+            font_size: 22
+            multiline: False
+            hint_text: "regex"
+
+
+        Label:
+            size_hint_x: .05
+            font_size: 22
+            text: '")'
+
+    Label:
+        markup: True
+        color: .22, .22, .22, 1
+        size_hint: None, None
+        size_hint_y: .45
+        size_hint_x: 1
+        font_size: 22
+        text: root.user_input(text_input.text, regex_input.text)
+
+
+        canvas.before:
+            Color:
+                rgba: .88, .88, .88, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
